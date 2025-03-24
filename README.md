@@ -1,65 +1,54 @@
-# AI-Driven Data Analysis
+# Multi-Agent Supervisor System for Data Analysis
 
-### Overview
-This project demonstrates the use of LangChain and Python tools to build a sophisticated workflow management system that involves multiple agents (workers) and a supervisor. The system can dynamically assign tasks to workers, route messages, and allow Python-based execution (like SQL queries or data visualizations).
+This project implements a multi-agent system with a supervisor that coordinates between specialized agents to handle different types of data-related queries.
 
-The workflow is designed to handle tasks like:
-* Generating SQL queries for database operations.
-* Visualizing data using Python scripts.
-* Assigning tasks and supervising agents to complete user requests.
+## Features
 
-### Features
-* SQL Developer Agent: An agent that can list tables, query metadata, check SQL query correctness, and execute SQL queries on a database.
-* Chart Generator Agent: An agent that executes Python code to generate charts based on data.
-* Supervisor Agent: A high-level agent that supervises the workflow, decides which agent should act next, and ultimately finalizes the workflow once all tasks are completed.
-* Python REPL Tool: Executes arbitrary Python code for data visualizations and other Python-based tasks.
+- **SQL Agent**: Handles database queries and schema exploration
+- **Data Visualizer**: Creates charts and visualizations
+- **Forecaster**: Performs time-series forecasting
+- **Summarizer**: Provides concise summaries of data
+- **Intelligent Supervisor**: Routes queries to the appropriate agents
 
-### Installation
-1. Clone the repository:
+## Prerequisites
 
-    git clone https://github.com/rithwik25/Auto_Analyst.git
+- Python 3.10
+- OpenAI API key
+- SQLite database (automatically created from CSV)
 
-    cd Auto_Analyst
+## Installation
 
-2. Install the required dependencies:
-
+1. Clone this repository
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate    # Windows
+3. Install Dependencies
+    ```bash
     pip install -r requirements.txt
+4. Create a .env file with your API keys
+    ```bash
+    OPENAI_API_KEY=your_openai_key
+    TAVILY_API_KEY=your_tavily_key
 
-3. Install additional libraries if required, such as matplotlib for plotting:
+## Usage
 
-    pip install matplotlib
+1. Place your salary_data.csv in the project root
+2. Run the ipynb cells
 
-### Dependencies
-* Python 3.10
-* langchain library
-* langchain_experimental library
-* matplotlib for plotting (if visualizations are needed)
-* Other required libraries listed in requirements.txt
+## Project Structure
 
-### Available Tools
-1. **python_repl**
+project/
+├── supervisor.ipynb       # Main ipynb file
+├── salary_data.csv        # Input data file
+├── salaries.db            # Generated SQLite database
+├── requirements.txt       # Python dependencies
+├── README.md              # This file
+└── .env                   # Environment variables
 
-    This tool executes Python code locally to generate visualizations (e.g., bar charts, pie charts, etc.). It executes any valid Python code and returns the result as output.
+## Limitations
 
-2. **list_tables**
-   
-    Lists the available tables in the connected database.
-
-3. **tables_schema**
-   
-    Fetches the schema and sample rows for the provided tables. Useful for understanding the structure of the database.
-
-4. **execute_sql**
-   
-    Executes an SQL query against the database and returns the results.
-
-5. **check_sql**
-   
-    Checks the syntax of the SQL query before execution to ensure its validity.
-
-### Example Output
-
-After running a request, such as generating a bar chart, the system will execute the code and save the chart as an image (image.png). It will return the path of the image or any other result based on the task.
-
-
-   
+* Requires properly formatted CSV input
+* Forecasting functionality needs time-series data
+* Visualization output paths are hardcoded
