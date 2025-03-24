@@ -39,13 +39,13 @@ This project implements a multi-agent system with a supervisor that coordinates 
 
 ## Project Structure
 
-project/
-├── supervisor.ipynb       # Main ipynb file
-├── salary_data.csv        # Input data file
-├── salaries.db            # Generated SQLite database
-├── requirements.txt       # Python dependencies
-├── README.md              # This file
-└── .env                   # Environment variables
+project/  
+├── supervisor.ipynb       # Main ipynb file "\n"  
+├── salary_data.csv        # Input data file  
+├── salaries.db            # Generated SQLite database  
+├── requirements.txt       # Python dependencies  
+├── README.md              # This file  
+└── .env                   # Environment variables  
 
 ## Limitations
 
